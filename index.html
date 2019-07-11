@@ -10,7 +10,45 @@
 <script src="http://fb.me/JSXTransformer-0.12.1.js"></script>
 <script type="text/jsx">
 /*Add your React code here*/
+var DATA = {
+    name: 'Akin Adewale',
+    imgURL: 'images/aboutMe',
+    hobbyList: ['coding', 'writing', 'skiing']
+}
+var App = React.createClass({
+    render: function() {
+        return (<div>
+                  <Profile
+                    name={this.props.profileData.name}
+                    imgURL={this.props.profileData.imgURL}/>
+                  <Hobbies
+                    hobbyList={this.props.profileData.hobbyList}/>
+                </div>
+              );
+    }
+});
 
+var Profile = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <h3>Akin Adewale</h3>
+        <img src="images/aboutMe.jpeg" />
+      </div>
+    );
+  }
+});
+
+var Hobbies = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <h5>My hobbies:</h5>
+      </div>
+    );
+  }
+})
+ReactDOM.render(<App profileData={DATA}/>, document.getElementById('content'));
 
 </script>
 </body>
